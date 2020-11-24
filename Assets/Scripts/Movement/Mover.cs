@@ -54,7 +54,7 @@ namespace RPG.Movement
         void ExtraRotation()
         {
             Vector3 lookrotation = navMeshAgent.steeringTarget - transform.position;
-            if (lookrotation.magnitude > 0.1f)
+            if (lookrotation.magnitude > 0.1f && navMeshAgent.velocity.magnitude != 0)
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookrotation), extraRotationSpeed * Time.deltaTime);
         }
     }
