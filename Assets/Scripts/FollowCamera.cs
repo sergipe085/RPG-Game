@@ -6,8 +6,8 @@ public class FollowCamera : MonoBehaviour
 {
     [SerializeField] private Transform target;
 
-    void Update()
+    void LateUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * 5f);
+        transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * 8f);
     }
 }
