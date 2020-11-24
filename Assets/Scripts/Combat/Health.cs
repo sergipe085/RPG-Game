@@ -31,7 +31,6 @@ namespace RPG.Combat
 
             isDead = true;
             GetComponent<Animator>().SetTrigger("die");
-            GetComponent<NavMeshAgent>().enabled = false;
         }
     }
 }

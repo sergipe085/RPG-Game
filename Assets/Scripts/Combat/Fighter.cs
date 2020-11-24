@@ -73,13 +73,13 @@ namespace RPG.Combat
             if (target) { target.TakeDamage(weaponDamage); }
         }
 
-        public void Attack(CombatTarget combatTarget)
+        public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             target = combatTarget.GetComponent<Health>();
         }
 
-        public bool CanAttack(CombatTarget combatTarget)
+        public bool CanAttack(GameObject combatTarget)
         {
             if (combatTarget == null) return false;
             Health healthToTest = combatTarget.GetComponent<Health>();
