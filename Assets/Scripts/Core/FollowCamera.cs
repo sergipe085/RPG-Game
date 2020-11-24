@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowCamera : MonoBehaviour
+namespace RPG.Core
 {
-    [SerializeField] private Transform target;
-
-    void LateUpdate()
+    public class FollowCamera : MonoBehaviour
     {
-        transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * 8f);
+        [SerializeField] private Transform target;
+
+        void LateUpdate()
+        {
+            transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * 8f);
+        }
     }
 }

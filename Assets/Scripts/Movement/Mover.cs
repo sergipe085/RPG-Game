@@ -2,43 +2,60 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using RPG.Combat;
 
-public class Mover : MonoBehaviour
+namespace RPG.Movement
 {
-    [Header("COMPONENTS")]
-    NavMeshAgent navMeshAgent;
-    Animator anim;
-
-    void Start()
+    public class Mover : MonoBehaviour
     {
-        navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        anim = GetComponent<Animator>();
-    }
+        [Header("MOVEMENT")]
+        [SerializeField] private float extraRotationSpeed = 0.0f;
 
-    void Update()
-    {
-        if (Input.GetMouseButton(0))
+        [Header("COMPONENTS")]
+        NavMeshAgent navMeshAgent;
+        Animator anim;
+
+        void Start()
         {
-            MoveToCursor();
+            navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+            anim = GetComponent<Animator>();
         }
 
-        UpdateAnimator();
-    }
-
-    private void MoveToCursor()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        void Update()
         {
-            navMeshAgent.SetDestination(hit.point);
+            UpdateAnimator();
+            ExtraRotation();
         }
-    }
 
-    private void UpdateAnimator()
-    {
-        Vector3 velocity = navMeshAgent.velocity;
-        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-        anim.SetFloat("ForwardSpeed", localVelocity.z);
+        public void StartMoveAction(Vector3 destination)
+        {
+            GetComponent<Fighter>().Cancel();
+            MoveTo(destination);
+        }
+
+        public void MoveTo(Vector3 destination)
+        {
+            navMeshAgent.SetDestination(destination);
+            navMeshAgent.isStopped = false;
+        }
+
+        public void Stop()
+        {
+            navMeshAgent.isStopped = true;
+        }
+
+        private void UpdateAnimator()
+        {
+            Vector3 velocity = navMeshAgent.velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+            anim.SetFloat("ForwardSpeed", localVelocity.z);
+        }
+
+        void ExtraRotation()
+        {
+            Vector3 lookrotation = navMeshAgent.steeringTarget - transform.position;
+            if (lookrotation.magnitude > 0.1f)
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookrotation), extraRotationSpeed * Time.deltaTime);
+        }
     }
 }
