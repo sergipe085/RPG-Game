@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
-using RPG.Combat;
 
 namespace RPG.Combat
 {

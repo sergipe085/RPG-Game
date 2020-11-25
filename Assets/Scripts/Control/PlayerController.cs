@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Combat;
+using RPG.Core;
 
 namespace RPG.Control
 {
@@ -10,8 +11,9 @@ namespace RPG.Control
     {
         private void Update()
         {
-            if (InteractWithCombat()) return;
-            if (InteractWithMovement()) return;
+            if (GetComponent<Health>().IsDead()) { return; }
+            if (InteractWithCombat()) { return; };
+            if (InteractWithMovement()) { return; };
             print("Nothing to do.");
         }
 
