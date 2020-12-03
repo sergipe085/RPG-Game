@@ -7,7 +7,8 @@ namespace RPG.Core
     public class FollowCamera : MonoBehaviour
     {
         [SerializeField] private Transform target;
-        float xRotation, yRotation;
+        [SerializeField] private float sensitivity = 0f;
+        float xRotation;
 
         private void Update()
         {
@@ -19,7 +20,7 @@ namespace RPG.Core
 
         void Rotate()
         {
-            xRotation += Input.GetAxis("Mouse X");
+            xRotation += Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
             transform.rotation = Quaternion.Euler(transform.rotation.y, xRotation, transform.rotation.z);
         }
 

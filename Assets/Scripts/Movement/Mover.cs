@@ -9,6 +9,7 @@ namespace RPG.Movement
     public class Mover : MonoBehaviour, IAction
     {
         [Header("MOVEMENT")]
+        [SerializeField] private AudioClip walkClip = null;
         [SerializeField] private float extraRotationSpeed = 0.0f;
 
         [Header("COMPONENTS")]
@@ -58,6 +59,22 @@ namespace RPG.Movement
             Vector3 lookrotation = navMeshAgent.steeringTarget - transform.position;
             if (lookrotation.magnitude > 0.1f && navMeshAgent.velocity.magnitude != 0)
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookrotation), extraRotationSpeed * Time.deltaTime);
+        }
+
+        void FootL()
+        {
+            if (GetComponent<AudioSource>() == null) { return; }
+
+            GetComponent<AudioSource>().clip = walkClip;
+            GetComponent<AudioSource>().Play();
+        }
+
+        void FootR()
+        {
+            if (GetComponent<AudioSource>() == null) { return; }
+
+            GetComponent<AudioSource>().clip = walkClip;
+            GetComponent<AudioSource>().Play();
         }
     }
 }

@@ -8,12 +8,15 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
+        [Header("EFFECTS")]
+        [SerializeField] private AudioClip[] attackClips = null;
+
         [SerializeField] private float weaponRange = 2.0f;
         [SerializeField] private float timeBetweenAttacks = 1.0f;
         [SerializeField] private float weaponDamage = 5.0f;
-        float timeSinceLastAttack = 0.0f;
+        private float timeSinceLastAttack = 0.0f;
 
-        Health target;
+        private Health target;
 
         void Start()
         {
@@ -24,11 +27,14 @@ namespace RPG.Combat
         {
             timeSinceLastAttack += Time.deltaTime;
 
-            if (!target) return;
-
+            if (!target)
+            {
+                return;
+            }           
             if (!GetIsInRange())
             {
                 GetComponent<Mover>().MoveTo(target.transform.position);
+                GetComponent<Animator>().SetTrigger("stopAttack");
             }
             else if (target)
             {
@@ -70,6 +76,10 @@ namespace RPG.Combat
         void Hit()
         {
             if (target) { target.TakeDamage(weaponDamage); }
+
+            if (GetComponent<AudioSource>() == null) { return; }
+            GetComponent<AudioSource>().clip = attackClips[Random.Range(0, attackClips.Length)];
+            GetComponent<AudioSource>().Play();
         }
 
         public void Attack(GameObject combatTarget)
