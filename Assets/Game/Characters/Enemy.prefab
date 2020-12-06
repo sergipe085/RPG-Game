@@ -2169,8 +2169,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7391682017660265777, guid: ed41c081bffe43a42b422c2da9a7c866, type: 3}
       propertyPath: m_Name
-      value: Enemy 1
+      value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7733787256815994935, guid: ed41c081bffe43a42b422c2da9a7c866, type: 3}
+      propertyPath: sword
+      value: 
+      objectReference: {fileID: 11400000, guid: a342ed5179b7a0447977b40dd1e16587, type: 2}
+    - target: {fileID: 7733787256815994935, guid: ed41c081bffe43a42b422c2da9a7c866, type: 3}
+      propertyPath: handTransform
+      value: 
+      objectReference: {fileID: 283976145605053766}
+    - target: {fileID: 7733787256815994935, guid: ed41c081bffe43a42b422c2da9a7c866, type: 3}
+      propertyPath: initialWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: a342ed5179b7a0447977b40dd1e16587, type: 2}
+    - target: {fileID: 7733787256815994935, guid: ed41c081bffe43a42b422c2da9a7c866, type: 3}
+      propertyPath: leftHandTransform
+      value: 
+      objectReference: {fileID: 1765135458619463404}
+    - target: {fileID: 7733787256815994935, guid: ed41c081bffe43a42b422c2da9a7c866, type: 3}
+      propertyPath: rightHandTransform
+      value: 
+      objectReference: {fileID: 283976145605053766}
     - target: {fileID: 7733787256815994935, guid: ed41c081bffe43a42b422c2da9a7c866, type: 3}
       propertyPath: timeBetweenAttacks
       value: 1.5

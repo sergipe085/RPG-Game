@@ -11,20 +11,20 @@ namespace RPG.Combat
         [Header("EFFECTS")]
         [SerializeField] private AudioClip[] attackClips = null;
 
-        [SerializeField] private float weaponRange = 2.0f;
-        [SerializeField] private float timeBetweenAttacks = 1.0f;
-        [SerializeField] private float weaponDamage = 5.0f;
-        [SerializeField] private Weapon sword = null;
-        [SerializeField] private Transform handTransform = null;
+        [SerializeField] private Weapon initialWeapon = null;
+        [SerializeField] private Transform rightHandTransform = null;
+        [SerializeField] private Transform leftHandTransform = null;
+        private GameObject newWeapon = null;
+        private Weapon currentWeapon = null;
 
         private float timeSinceLastAttack = 0.0f;
         private Health target;
 
         void Start()
         {
-            timeSinceLastAttack = timeBetweenAttacks;
+            timeSinceLastAttack = Mathf.Infinity;
 
-            SpawnWeapon(sword);
+            EquipWeapon(initialWeapon);
         }
 
         private void Update()
@@ -49,20 +49,28 @@ namespace RPG.Combat
             if (target.IsDead()) target = null;
         }
 
-        void SpawnWeapon(Weapon weapon)
+        public bool EquipWeapon(Weapon weapon)
         {
-            weapon.Spawn(handTransform, GetComponent<Animator>());
+            if (weapon == null || weapon == currentWeapon) return false;
+
+            if (newWeapon != null) Destroy(newWeapon);
+            newWeapon = weapon.Spawn(rightHandTransform, leftHandTransform, GetComponent<Animator>());
+
+            weapon.ChangeAnimator(GetComponent<Animator>());
+
+            currentWeapon = weapon;
+            return true;
         }
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, target.transform.position) <= weaponRange;
+            return Vector3.Distance(transform.position, target.transform.position) <= currentWeapon.GetRange();
         }
 
         void AttackBehaviour()
         {
             FixAttackRotation();
-            if (timeSinceLastAttack >= timeBetweenAttacks)
+            if (timeSinceLastAttack >= currentWeapon.GetTimeBeetwenAttacks())
             {
                 timeSinceLastAttack = 0;
                 TriggerAttack();
@@ -84,7 +92,7 @@ namespace RPG.Combat
         //animation event
         void Hit()
         {
-            if (target) { target.TakeDamage(weaponDamage); }
+            if (target) { target.TakeDamage(currentWeapon.GetDamage()); }
 
             if (GetComponent<AudioSource>() == null) { return; }
             GetComponent<AudioSource>().clip = attackClips[Random.Range(0, attackClips.Length)];

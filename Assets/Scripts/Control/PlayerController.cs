@@ -9,11 +9,13 @@ namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] private LayerMask movementLayers = 0;
+
         private void Update()
         {
             if (GetComponent<Health>().IsDead()) { return; }
-            if (InteractWithCombat()) { return; };
-            if (InteractWithMovement()) { return; };
+            if (InteractWithCombat()) { return; }
+            if (InteractWithMovement()) { return; }
             print("Nothing to do.");
         }
 
@@ -39,7 +41,7 @@ namespace RPG.Control
         private bool InteractWithMovement()
         {
             RaycastHit hit;
-            if (Physics.Raycast(GetMouseRay(), out hit))
+            if (Physics.Raycast(GetMouseRay(), out hit, Mathf.Infinity, movementLayers))
             {
                 if (Input.GetMouseButton(0))
                 {
