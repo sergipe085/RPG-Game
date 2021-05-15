@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
+using RPG.Core;
+using RPG.Combat;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Weapons/Make New Weapon", order = 0)]
 public class Weapon : ScriptableObject
 {
     public GameObject weaponPrefab = null;
     public AnimatorOverrideController weaponAnimator = null;
+    public Projectile projectile = null;
+    public AudioClip attackSound = null;
+    public float playerSpeed = 0.0f;
     public float weaponRange = 0.0f;
     public float weaponDamage = 0.0f;
     public float timeBetweenAttacks = 0.0f;
@@ -14,10 +19,28 @@ public class Weapon : ScriptableObject
     {
         if (weaponPrefab != null)
         {
-            if (isRightHanded) return Instantiate(weaponPrefab, rightHand);
-            else return Instantiate(weaponPrefab, leftHand);
+            return Instantiate(weaponPrefab, GetTransform(rightHand, leftHand));
         }
         return null;
+    }
+
+    Transform GetTransform(Transform rightHand, Transform leftHand)
+    {
+        Transform handTransform;
+        if (isRightHanded) handTransform = rightHand;
+        else handTransform = leftHand;
+        return handTransform;
+    }
+
+    public bool HasProjectile()
+    {
+        return projectile != null;
+    }
+
+    public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target)
+    {
+        Projectile projectileInstance = Instantiate(projectile, GetTransform(rightHand, leftHand).position, Quaternion.identity);
+        projectileInstance.SetTarget(target, weaponDamage);
     }
 
     public void ChangeAnimator(Animator animator)

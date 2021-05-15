@@ -45,6 +45,7 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButton(0))
                 {
+                    GetComponent<Mover>().currentSpeed = GetComponent<Fighter>().currentWeapon.playerSpeed;
                     GetComponent<Mover>().StartMoveAction(hit.point);
                 }
                 return true;

@@ -8,14 +8,11 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [Header("EFFECTS")]
-        [SerializeField] private AudioClip[] attackClips = null;
-
         [SerializeField] private Weapon initialWeapon = null;
         [SerializeField] private Transform rightHandTransform = null;
         [SerializeField] private Transform leftHandTransform = null;
         private GameObject newWeapon = null;
-        private Weapon currentWeapon = null;
+        public Weapon currentWeapon = null;
 
         private float timeSinceLastAttack = 0.0f;
         private Health target;
@@ -92,11 +89,26 @@ namespace RPG.Combat
         //animation event
         void Hit()
         {
-            if (target) { target.TakeDamage(currentWeapon.GetDamage()); }
+            if (target == null) { return; }
 
-            if (GetComponent<AudioSource>() == null) { return; }
-            GetComponent<AudioSource>().clip = attackClips[Random.Range(0, attackClips.Length)];
-            GetComponent<AudioSource>().Play();
+            if (GetComponent<AudioSource>() != null)
+            {
+                GetComponent<AudioSource>().clip = currentWeapon.attackSound;
+                GetComponent<AudioSource>().Play();
+            }
+
+            if (currentWeapon.HasProjectile())
+            {
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+                return;
+            }
+
+            target.TakeDamage(currentWeapon.GetDamage());
+        }
+
+        void Shoot()
+        {
+            Hit();
         }
 
         public void Attack(GameObject combatTarget)

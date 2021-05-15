@@ -11,6 +11,7 @@ namespace RPG.Movement
         [Header("MOVEMENT")]
         [SerializeField] private AudioClip walkClip = null;
         [SerializeField] private float extraRotationSpeed = 0.0f;
+        public float currentSpeed = 0.0f;
 
         [Header("COMPONENTS")]
         NavMeshAgent navMeshAgent;
@@ -25,6 +26,7 @@ namespace RPG.Movement
         void Update()
         {
             navMeshAgent.enabled = !GetComponent<Health>().IsDead();
+            navMeshAgent.speed = currentSpeed;
 
             UpdateAnimator();
             ExtraRotation();

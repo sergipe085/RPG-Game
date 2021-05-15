@@ -10,8 +10,8 @@ namespace RPG.Control
 {
     public class AIController : MonoBehaviour
     {
-        [SerializeField] private float patrolSpeed = 0f;
-        [SerializeField] private float attackSpeed = 0f;
+        [SerializeField] private float patrolSpeed = 0.0f;
+        [SerializeField] private float chaseSpeed = 0.0f;
         [SerializeField] private float chaseDistance;
         [SerializeField] private float suspicionTime;
         [SerializeField] private float guardTime = 1f;
@@ -71,7 +71,7 @@ namespace RPG.Control
             }
 
             GetComponent<Mover>().StartMoveAction(nextPosition);
-            GetComponent<NavMeshAgent>().speed = patrolSpeed;
+            GetComponent<Mover>().currentSpeed = patrolSpeed;
         }
 
         bool AtWayPoint()
@@ -103,7 +103,7 @@ namespace RPG.Control
         void AttackBehaviour()
         {
             fighter.Attack(playerRef);
-            GetComponent<NavMeshAgent>().speed = attackSpeed;
+            GetComponent<Mover>().currentSpeed = chaseSpeed;
         }
 
         bool InAttackRangeOfPlayer()
