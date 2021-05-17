@@ -30,7 +30,7 @@ MonoBehaviour:
     m_ParentTrack: {fileID: -7994588505841281370}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 0.5
+    m_BlendInDuration: 1.0000000000000018
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -64,7 +64,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 0.7166666666666666
+    m_BlendOutDuration: 1.1333333333333333
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -124,16 +124,16 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: FollowCamera
   - m_Version: 1
-    m_Start: 0.4166666666666667
+    m_Start: 0
     m_ClipIn: 0
-    m_Asset: {fileID: 8103663244057576278}
-    m_Duration: 2.2833333333333337
+    m_Asset: {fileID: 2543591160141890852}
+    m_Duration: 6.416666666666669
     m_TimeScale: 1
     m_ParentTrack: {fileID: -7994588505841281370}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 0.7166666666666666
-    m_BlendOutDuration: 0.666666666666667
+    m_BlendInDuration: 1.1333333333333333
+    m_BlendOutDuration: 1.0000000000000018
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -191,73 +191,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: CM Reveal01
-  - m_Version: 1
-    m_Start: 2.033333333333333
-    m_ClipIn: 0
-    m_Asset: {fileID: 382224561872891291}
-    m_Duration: 2.466666666666667
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -7994588505841281370}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: 0.666666666666667
-    m_BlendOutDuration: 0.7333333333333334
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: CM Reveal02
-  - m_Version: 1
-    m_Start: 3.7666666666666666
-    m_ClipIn: 0
-    m_Asset: {fileID: -301536663011585396}
-    m_Duration: 2.1500000000000004
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -7994588505841281370}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: 0.7333333333333334
-    m_BlendOutDuration: 0.5
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: CM Reveal03
+    m_DisplayName: CM Dolly1
   m_Markers:
     m_Objects: []
 --- !u!114 &-7955577022641176402
@@ -299,22 +233,6 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects: []
---- !u!114 &-301536663011585396
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90fb794a295e73545af71bcdb7375791, type: 3}
-  m_Name: CinemachineShot
-  m_EditorClassIdentifier: 
-  DisplayName: 
-  VirtualCamera:
-    exposedName: 31c371828d34fef4d8206eaa16e1138d
-    defaultValue: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +243,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
-  m_Name: Intro Sequence Timeline
+  m_Name: Boss Sequence Timeline
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
@@ -335,7 +253,7 @@ MonoBehaviour:
     m_Framerate: 60
   m_DurationMode: 0
   m_MarkerTrack: {fileID: -1082130708066852209}
---- !u!114 &382224561872891291
+--- !u!114 &2543591160141890852
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -349,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: 
   VirtualCamera:
-    exposedName: 5cb45c1fef52fdf4e85db4de39a1855d
+    exposedName: af23173c322ff91499db32f74e496f7d
     defaultValue: {fileID: 0}
 --- !u!114 &5916518013843806786
 MonoBehaviour:
@@ -366,20 +284,4 @@ MonoBehaviour:
   DisplayName: 
   VirtualCamera:
     exposedName: df883b5d28a162b44b1a6c939c802612
-    defaultValue: {fileID: 0}
---- !u!114 &8103663244057576278
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90fb794a295e73545af71bcdb7375791, type: 3}
-  m_Name: CinemachineShot
-  m_EditorClassIdentifier: 
-  DisplayName: 
-  VirtualCamera:
-    exposedName: d226ab2aa6289a6428e05840b30af58a
     defaultValue: {fileID: 0}

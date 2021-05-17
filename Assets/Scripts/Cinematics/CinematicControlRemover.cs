@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using RPG.Core;
 using RPG.Control;
+using System;
 
 namespace RPG.Cinematics
 {

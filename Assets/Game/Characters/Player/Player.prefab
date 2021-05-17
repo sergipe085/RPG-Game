@@ -26,7 +26,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.242
+  m_Volume: 0.27
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -449,6 +449,10 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 5.662
       objectReference: {fileID: 0}
+    - target: {fileID: 1335262728, guid: ed41c081bffe43a42b422c2da9a7c866, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4770037351951938791, guid: ed41c081bffe43a42b422c2da9a7c866,
         type: 3}
       propertyPath: m_IsActive
@@ -473,6 +477,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7733787256815994935, guid: ed41c081bffe43a42b422c2da9a7c866,
+        type: 3}
+      propertyPath: attackClips.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7733787256815994935, guid: ed41c081bffe43a42b422c2da9a7c866,
         type: 3}
@@ -514,11 +523,6 @@ PrefabInstance:
       objectReference: {fileID: 795402489668275164}
     - target: {fileID: 7733787256815994935, guid: ed41c081bffe43a42b422c2da9a7c866,
         type: 3}
-      propertyPath: attackClips.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7733787256815994935, guid: ed41c081bffe43a42b422c2da9a7c866,
-        type: 3}
       propertyPath: attackClips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: cdb353062fe19a4489a587914897acab, type: 3}
@@ -535,7 +539,7 @@ PrefabInstance:
     - target: {fileID: 8770857171235695940, guid: ed41c081bffe43a42b422c2da9a7c866,
         type: 3}
       propertyPath: healthPoints
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 8988730924460208262, guid: ed41c081bffe43a42b422c2da9a7c866,
         type: 3}
