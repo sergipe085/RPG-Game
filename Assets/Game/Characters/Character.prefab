@@ -1786,6 +1786,7 @@ GameObject:
   - component: {fileID: 7459832877851990311}
   - component: {fileID: 8770857171235695940}
   - component: {fileID: 180130285975846401}
+  - component: {fileID: -6596536028953133838}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1904,7 +1905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkClip: {fileID: 0}
   extraRotationSpeed: 6
-  weaponSpeed: 0
+  currentSpeed: 0
 --- !u!114 &7733787256815994935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1917,7 +1918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657df1cfae97fd84088840b1a847decb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackClips: []
   initialWeapon: {fileID: 11400000, guid: a342ed5179b7a0447977b40dd1e16587, type: 2}
   rightHandTransform: {fileID: 283976145605053766}
   leftHandTransform: {fileID: 1765135458619463404}
@@ -1961,6 +1961,19 @@ CapsuleCollider:
   m_Height: 2.0651557
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &-6596536028953133838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391682017660265777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b180cfaa34dd8f438f675970e39c885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UID: 
 --- !u!1 &7399775555186985308
 GameObject:
   m_ObjectHideFlags: 0
