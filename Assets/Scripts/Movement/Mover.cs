@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using RPG.Core;
+using RPG.Saving;
 
 namespace RPG.Movement
 {
-    public class Mover : MonoBehaviour, IAction
+    public class Mover : MonoBehaviour, IAction, ISaveable
     {
         [Header("MOVEMENT")]
         [SerializeField] private AudioClip walkClip = null;
@@ -77,6 +78,19 @@ namespace RPG.Movement
 
             GetComponent<AudioSource>().clip = walkClip;
             GetComponent<AudioSource>().Play();
+        }
+
+        public object CaptureState()
+        {
+            SerializebleVector3 state = new SerializebleVector3(transform.position);
+            return state;
+        }
+
+        public void RestoreState(object state)
+        {
+            SerializebleVector3 vectorState = state as SerializebleVector3;
+            navMeshAgent.Warp(vectorState.ToVector());
+            Cancel();
         }
     }
 }
