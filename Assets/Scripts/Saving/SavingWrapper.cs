@@ -8,12 +8,20 @@ namespace RPG.Saving
 
         private void Update() {
             if (Input.GetKeyDown(KeyCode.S)) {
-                GetComponent<SavingSystem>().Save(saveName);
+                Save();
             }
 
             if (Input.GetKeyDown(KeyCode.L)) {
-                GetComponent<SavingSystem>().Load(saveName);
+                Load();
             }
+        }
+
+        public void Save() {
+            GetComponent<SavingSystem>().Save(saveName);
+        }
+
+        public void Load() {
+            GetComponent<SavingSystem>().Load(saveName);
         }
     }
 }

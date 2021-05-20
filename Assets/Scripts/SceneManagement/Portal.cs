@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Saving;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -29,11 +30,18 @@ namespace RPG.SceneManagement
                 yield break;
             }
 
+            DontDestroyOnLoad(this.gameObject);
+
             Fader fader = FindObjectOfType<Fader>();
+            SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>().GetComponent<SavingWrapper>();
 
             yield return fader.FadeOut(fadeDuration / 2);
-            DontDestroyOnLoad(this.gameObject);
+
+            savingWrapper.Save();
+
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
+
+            savingWrapper.Load();
 
             Portal portalToSpawn = GetPortalToSpawn();
             UpdatePlayer(portalToSpawn);
