@@ -46,6 +46,7 @@ namespace RPG.Core
             healthPoints = healthState;
             if (healthPoints <= 0) {
                 Die();
+                GetComponent<Animator>().Play("Death");
             }
         }
     }

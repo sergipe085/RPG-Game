@@ -17,7 +17,7 @@ namespace RPG.Control
         [SerializeField] private float guardTime = 1f;
         [SerializeField] private float waypointTolerance = 1f;
 
-        PatrolPath patrolPath;
+        [SerializeField] private PatrolPath patrolPath;
         Fighter fighter;
         Health health;
         GameObject playerRef;
@@ -29,7 +29,6 @@ namespace RPG.Control
 
         private void Start()
         {
-            patrolPath = GetComponentInChildren<PatrolPath>();
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
             playerRef = GameObject.FindGameObjectWithTag("Player");
