@@ -2,13 +2,23 @@ using System;
 using System.IO;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace RPG.Saving
 {
     public class SavingSystem : MonoBehaviour
     {
+        public IEnumerator LoadLastScene(string saveFile) {
+            Dictionary<string, object> state = LoadFile(saveFile);
+            if (state.ContainsKey("lastScene") && SceneManager.GetActiveScene().name != (string) state["lastScene"]) {
+                yield return SceneManager.LoadSceneAsync((string)state["lastScene"]);
+            }
+            RestoreState(state);
+        }
+
         public void Save(string saveFile) {
             print("Saving to " + GetPathFromSaveFile(saveFile));
 
@@ -55,6 +65,8 @@ namespace RPG.Saving
             foreach(SaveableEntity saveable in FindObjectsOfType<SaveableEntity>()) {
                 state[saveable.GetUID()] = saveable.CaptureState();
             }
+
+            state["lastScene"] = SceneManager.GetActiveScene().name;
         }
 
         private string GetPathFromSaveFile(string saveFile) {

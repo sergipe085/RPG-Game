@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace RPG.Saving
@@ -6,8 +7,8 @@ namespace RPG.Saving
     {
         [SerializeField] private string saveName = "save01";
 
-        private void Start() {
-            Load();
+        private IEnumerator Start() {
+            yield return GetComponent<SavingSystem>().LoadLastScene(saveName);
         }
 
         private void Update() {

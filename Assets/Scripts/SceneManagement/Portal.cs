@@ -46,6 +46,8 @@ namespace RPG.SceneManagement
             Portal portalToSpawn = GetPortalToSpawn();
             UpdatePlayer(portalToSpawn);
 
+            savingWrapper.Save();
+
             yield return new WaitForSeconds(fadeWaitTime);
             yield return fader.FadeIn(fadeDuration / 2);
 
