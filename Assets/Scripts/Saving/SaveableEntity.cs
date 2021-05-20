@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RPG.Core;
 using UnityEditor;
@@ -10,6 +11,8 @@ namespace RPG.Saving
     public class SaveableEntity : MonoBehaviour
     {
         [SerializeField] private string UID = "";
+
+        private static Dictionary<string, SaveableEntity> globalLookup = new Dictionary<string, SaveableEntity>();
 
         public string GetUID() {
             return UID;
@@ -45,11 +48,32 @@ namespace RPG.Saving
             SerializedObject serializedObject = new SerializedObject(this);
             SerializedProperty property = serializedObject.FindProperty("UID");
 
-            if (string.IsNullOrEmpty(property.stringValue)) {
+            if (string.IsNullOrEmpty(property.stringValue) || !IsUnique(property.stringValue)) {
                 property.stringValue = System.Guid.NewGuid().ToString();
                 serializedObject.ApplyModifiedProperties();
             }
+
+            globalLookup[property.stringValue] = this;
         }
         #endif
+
+        private bool IsUnique(string id) {
+            if (!globalLookup.ContainsKey(id)) return true;
+            if (globalLookup[id] == this) return true;
+
+            if (globalLookup[id] == null)
+            {
+                globalLookup.Remove(id);
+                return true;
+            }
+
+            if (globalLookup[id].GetUID() != id)
+            {
+                globalLookup.Remove(id);
+                return true;
+            }
+
+            return false;
+        }
     }
 }

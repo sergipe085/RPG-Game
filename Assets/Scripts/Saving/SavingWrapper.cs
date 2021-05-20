@@ -6,6 +6,10 @@ namespace RPG.Saving
     {
         [SerializeField] private string saveName = "save01";
 
+        private void Start() {
+            Load();
+        }
+
         private void Update() {
             if (Input.GetKeyDown(KeyCode.S)) {
                 Save();
@@ -22,6 +26,10 @@ namespace RPG.Saving
 
         public void Load() {
             GetComponent<SavingSystem>().Load(saveName);
+        }
+
+        private void OnApplicationQuit() {
+            Save();
         }
     }
 }

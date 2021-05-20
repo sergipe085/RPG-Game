@@ -10,12 +10,16 @@ namespace RPG.Saving
     public class SavingSystem : MonoBehaviour
     {
         public void Save(string saveFile) {
+            print("Saving to " + GetPathFromSaveFile(saveFile));
+
             Dictionary<string, object> state = LoadFile(saveFile);
             CaptureState(state);
             SaveFile(saveFile, state);
         }
 
         public void Load(string saveFile) {
+            print("Loading from " + GetPathFromSaveFile(saveFile));
+
             RestoreState(LoadFile(saveFile));
         }
 

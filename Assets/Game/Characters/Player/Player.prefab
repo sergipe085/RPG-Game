@@ -444,7 +444,7 @@ PrefabInstance:
     - target: {fileID: -6596536028953133838, guid: ed41c081bffe43a42b422c2da9a7c866,
         type: 3}
       propertyPath: UID
-      value: 
+      value: player
       objectReference: {fileID: 0}
     - target: {fileID: 1335262727, guid: ed41c081bffe43a42b422c2da9a7c866, type: 3}
       propertyPath: walkClip
