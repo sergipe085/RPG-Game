@@ -541,6 +541,12 @@ PrefabInstance:
       propertyPath: attackClips.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 0124e0ac1efc0a948a11048ee5084f11, type: 3}
+    - target: {fileID: 7733787256815994935, guid: ed41c081bffe43a42b422c2da9a7c866,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: a342ed5179b7a0447977b40dd1e16587,
+        type: 2}
     - target: {fileID: 8770857171235695940, guid: ed41c081bffe43a42b422c2da9a7c866,
         type: 3}
       propertyPath: healthPoints

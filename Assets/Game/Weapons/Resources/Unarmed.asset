@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c06fd219a6830e43801f7b8df96b9b1, type: 3}
   m_Name: Unarmed
   m_EditorClassIdentifier: 
-  playerSpeed: 5
   weaponPrefab: {fileID: 0}
   weaponAnimator: {fileID: 0}
+  projectile: {fileID: 0}
+  attackSound: {fileID: 0}
+  playerSpeed: 5
   weaponRange: 2
   weaponDamage: 5
   timeBetweenAttacks: 1.5
   isRightHanded: 1
-  projectile: {fileID: 0}
