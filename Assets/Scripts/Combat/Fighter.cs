@@ -134,6 +134,10 @@ namespace RPG.Combat
             GetComponent<Mover>().Cancel();
         }
 
+        public Health GetTarget() {
+            return target;
+        }
+
         void StopAttack()
         {
             GetComponent<Animator>().ResetTrigger("attack");
