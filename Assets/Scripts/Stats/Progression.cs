@@ -6,47 +6,28 @@ namespace RPG.Stats {
     {
         [SerializeField] private ProgressionCharacterClass[] characterClasses = null;
 
-        public float GetValue(CharacterClass _characterClass, Stats _stats, int _level) {
-            ProgressionCharacterClass characterClass = null;
+        public float GetStat(CharacterClass _characterClass, Stats _stats, int _level) {
             foreach(ProgressionCharacterClass c in characterClasses) {
-                if (c.GetClass() == _characterClass) {
-                    characterClass = c;
-                    break;
+                if (c.characterClass != _characterClass) continue;
+                
+                foreach(ProgressionStat progressionStat in c.stats) {
+                    if (_stats != progressionStat.stat) continue;
+                    if (progressionStat.levels.Length < _level) continue;
+
+                    return progressionStat.levels[_level];
                 }
             }
-            if (characterClass == null) return 1f;
-            
-            return characterClass.GetValue(_stats, _level);
+            return 0f;
         }
 
         [System.Serializable]
         public class ProgressionCharacterClass 
         {
-            [SerializeField] private CharacterClass    characterClass = CharacterClass.Player;
-            [SerializeField] private ProgressionStat[] stats;
+            public CharacterClass    characterClass = CharacterClass.Player;
+            public ProgressionStat[] stats;
 
             public CharacterClass GetClass() {
                 return characterClass;
-            }
-
-            // public float GetHealth(int _level) {
-            //     if (health.Length == 0) return 1f;
-
-            //     int level = Mathf.Clamp(_level - 1, 0, health.Length - 1);
-            //     return health[level];
-            // }
-
-            public float GetValue(Stats _stats, int _level) {
-                ProgressionStat progressionStat = null;
-                foreach (ProgressionStat p in stats) {
-                    if (p.stat == _stats) {
-                        progressionStat = p;
-                    }
-                }
-
-                if (progressionStat == null) return 1f;
-
-                return progressionStat.levels[_level];
             }
         }
 
