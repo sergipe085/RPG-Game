@@ -14,6 +14,7 @@ namespace RPG.Combat
         [SerializeField] private GameObject[] destroyOnHit = null;
         [SerializeField] private float lifeAfterImpact = 0.0f;
         Health target = null;
+        GameObject instigator;
         float damage = 0.0f;
 
         private void Start()
@@ -41,10 +42,11 @@ namespace RPG.Combat
             }
         }
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(Health target, GameObject instigator, float damage)
         {
             this.target = target;
             this.damage = damage;
+            this.instigator = instigator;
         }
 
         private Vector3 GetAimLocation()
@@ -56,7 +58,7 @@ namespace RPG.Combat
         {
             if (target == null && other.GetComponent<Health>() != null)
             {
-                other.GetComponent<Health>().TakeDamage(damage);
+                other.GetComponent<Health>().TakeDamage(instigator, damage);
                 speed = 0;
                 DestroySelf();
 
@@ -64,7 +66,7 @@ namespace RPG.Combat
             }
 
             if (other.GetComponent<Health>() != target || other.GetComponent<Health>() == null) return;
-            target.TakeDamage(damage);
+            target.TakeDamage(instigator, damage);
             speed = 0;
             DestroySelf();
         }
