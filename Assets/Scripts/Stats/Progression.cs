@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace RPG.Stats {
     [CreateAssetMenu(fileName = "Progression", menuName = "Stats/New Progression", order = 0)]
@@ -6,18 +8,38 @@ namespace RPG.Stats {
     {
         [SerializeField] private ProgressionCharacterClass[] characterClasses = null;
 
-        public float GetStat(CharacterClass _characterClass, Stats _stats, int _level) {
-            foreach(ProgressionCharacterClass c in characterClasses) {
-                if (c.characterClass != _characterClass) continue;
-                
-                foreach(ProgressionStat progressionStat in c.stats) {
-                    if (_stats != progressionStat.stat) continue;
-                    if (progressionStat.levels.Length < _level) continue;
+        private Dictionary<CharacterClass, Dictionary<Stats, float[]>> lookupTable = null;
 
-                    return progressionStat.levels[_level];
-                }
+        public float GetStat(CharacterClass _characterClass, Stats _stats, int _level) {
+            BuildLookup();
+
+            float[] levels = lookupTable[_characterClass][_stats];
+
+            if (_level > levels.Length) {
+                return 0f;
             }
-            return 0f;
+
+            return levels[_level - 1];
+        }
+
+        public int GetLevelsLength(CharacterClass _characterClass, Stats _stats) {
+            float[] levels = lookupTable[_characterClass][_stats];
+            return levels.Length;
+        }
+
+        private void BuildLookup()
+        {
+            if (lookupTable != null) return;
+
+            lookupTable = new Dictionary<CharacterClass, Dictionary<Stats, float[]>>();
+
+            foreach(ProgressionCharacterClass progressionCharacterClass in characterClasses) {
+                var statLookupTable = new Dictionary<Stats, float[]>();
+                foreach (ProgressionStat stat in progressionCharacterClass.stats) {
+                    statLookupTable[stat.stat] = stat.levels;
+                }
+                lookupTable[progressionCharacterClass.characterClass] = statLookupTable;
+            }
         }
 
         [System.Serializable]

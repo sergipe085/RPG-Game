@@ -3707,7 +3707,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090168861}
-  m_LocalRotation: {x: 0.11859434, y: 0.66244847, z: -0.10735116, w: 0.73182863}
+  m_LocalRotation: {x: 0.118594356, y: 0.66244847, z: -0.10735113, w: 0.7318287}
   m_LocalPosition: {x: -38.72, y: 15.67, z: -0.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4888,6 +4888,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy03 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4319921081593857656, guid: a39cd19a546dfe44f97015a427fda899,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: a342ed5179b7a0447977b40dd1e16587,
+        type: 2}
     - target: {fileID: 4658569363030757838, guid: a39cd19a546dfe44f97015a427fda899,
         type: 3}
       propertyPath: characterClass
@@ -5236,6 +5242,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy03
       objectReference: {fileID: 0}
+    - target: {fileID: 4319921081593857656, guid: a39cd19a546dfe44f97015a427fda899,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: a342ed5179b7a0447977b40dd1e16587,
+        type: 2}
     - target: {fileID: 4658569363030757838, guid: a39cd19a546dfe44f97015a427fda899,
         type: 3}
       propertyPath: characterClass
@@ -6106,6 +6118,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySworder
       objectReference: {fileID: 0}
+    - target: {fileID: 3329334396229438547, guid: 2a7e3055bad8d0c4cb50bee9ebfa54f8,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: f08c4dac7fcf1a44784b57c8928bcaea,
+        type: 2}
     - target: {fileID: 4168545793932784866, guid: 2a7e3055bad8d0c4cb50bee9ebfa54f8,
         type: 3}
       propertyPath: m_RootOrder
@@ -7510,6 +7528,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyArcher (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 832854941668895714, guid: d65a224762ebeb249a9e507ae764b9d8,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: d522d90af17d66a4db3744ac7f386124,
+        type: 2}
     - target: {fileID: 2045593580615717715, guid: d65a224762ebeb249a9e507ae764b9d8,
         type: 3}
       propertyPath: m_RootOrder
@@ -7569,6 +7593,11 @@ PrefabInstance:
         type: 3}
       propertyPath: UID
       value: 513dc135-8404-47c2-9d36-9af16201dacd
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132098339315563604, guid: d65a224762ebeb249a9e507ae764b9d8,
+        type: 3}
+      propertyPath: startingLevel
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8960832217307161545, guid: d65a224762ebeb249a9e507ae764b9d8,
         type: 3}
@@ -8173,6 +8202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 555684720796268512, guid: c6f58a83fdc43294f803209e2820e2b8,
+        type: 3}
+      propertyPath: healthPoints
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1539534975532618387, guid: c6f58a83fdc43294f803209e2820e2b8,
         type: 3}

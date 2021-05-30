@@ -16,10 +16,11 @@ MonoBehaviour:
   - characterClass: 0
     stats:
     - stat: 0
-      levels: 
+      levels:
       - 100
       - 200
       - 400
+      - 700
       - 700
     - stat: 1
       levels:
@@ -27,11 +28,31 @@ MonoBehaviour:
       - 20
       - 40
       - 100
-  - characterClass: 1
-    stats: 
-    - stat: 0
-      levels: 
+    - stat: 2
+      levels:
       - 10
+      - 20
+      - 30
+      - 40
+  - characterClass: 1
+    stats:
+    - stat: 0
+      levels:
+      - 10
+      - 20
+      - 40
+      - 70
+    - stat: 1
+      levels:
+      - 10
+      - 20
+      - 40
+      - 100
+  - characterClass: 3
+    stats:
+    - stat: 0
+      levels:
+      - 5
       - 20
       - 40
       - 70
