@@ -21,7 +21,7 @@ namespace RPG.Stats
             return progression.GetStat(characterClass, stat, GetLevel());
         }
 
-        private int GetLevel() {
+        public int GetLevel() {
             Experience experience = GetComponent<Experience>();
 
             if (experience == null) return startingLevel;
