@@ -23,6 +23,8 @@ namespace RPG.Stats {
         }
 
         public int GetLevelsLength(CharacterClass _characterClass, Stats _stats) {
+            BuildLookup();
+
             float[] levels = lookupTable[_characterClass][_stats];
             return levels.Length;
         }

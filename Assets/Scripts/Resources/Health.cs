@@ -14,7 +14,7 @@ namespace RPG.Resources
         private bool isDead = false;
 
         private void Start() {
-            if (healthPoints < 0) {
+            if (healthPoints < 0f) {
                 healthPoints = GetComponent<BaseStats>().GetStat(Stats.Stats.Health);
             }
         }
