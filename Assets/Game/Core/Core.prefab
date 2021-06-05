@@ -157,17 +157,17 @@ PrefabInstance:
     - target: {fileID: 7854399078954968574, guid: 5376336ac661a9140b2a982cac116519,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -45.258774
+      value: -46.807777
       objectReference: {fileID: 0}
     - target: {fileID: 7854399078954968574, guid: 5376336ac661a9140b2a982cac116519,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.24998
+      value: 1.249979
       objectReference: {fileID: 0}
     - target: {fileID: 7854399078954968574, guid: 5376336ac661a9140b2a982cac116519,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.59
+      value: -0.63454956
       objectReference: {fileID: 0}
     - target: {fileID: 7854399078954968574, guid: 5376336ac661a9140b2a982cac116519,
         type: 3}
@@ -224,6 +224,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5236170290483433632}
     m_Modifications:
+    - target: {fileID: 2784063181523774266, guid: 591b9896fae342c4cad37566a72f8075,
+        type: 3}
+      propertyPath: levelUpEffect
+      value: 
+      objectReference: {fileID: 7051491626939946926, guid: d52939daefcd6f64c9135479ca53e1d3,
+        type: 3}
     - target: {fileID: 5339745690630095933, guid: 591b9896fae342c4cad37566a72f8075,
         type: 3}
       propertyPath: m_LocalPosition.x

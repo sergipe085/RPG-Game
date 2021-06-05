@@ -10,6 +10,8 @@ namespace RPG.Resources
 {
     public class Health : MonoBehaviour, ISaveable
     {
+        [SerializeField] private float regenerationPercentage = 70f;
+
         private float healthPoints = -1f;
         private bool isDead = false;
 
@@ -17,6 +19,13 @@ namespace RPG.Resources
             if (healthPoints < 0f) {
                 healthPoints = GetComponent<BaseStats>().GetStat(Stats.Stats.Health);
             }
+
+            GetComponent<BaseStats>().onLevelUp += RegenerateHealth;
+        }
+
+        private void RegenerateHealth() {
+            float regenHealthPoints = GetComponent<BaseStats>().GetStat(Stats.Stats.Health) * (regenerationPercentage / 100);
+            healthPoints = Mathf.Max(regenHealthPoints, healthPoints);
         }
 
         public bool IsDead()

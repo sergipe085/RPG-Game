@@ -8,7 +8,11 @@ namespace RPG.SceneManagement
     {
         [SerializeField] private string saveName = "save01";
 
-        private IEnumerator Start() {
+        private void Awake() {
+            StartCoroutine(LoadLastScene());
+        }
+
+        private IEnumerator LoadLastScene() {
             Fader fader = FindObjectOfType<Fader>();
             fader.FadeOutImmediate();
             yield return GetComponent<SavingSystem>().LoadLastScene(saveName);
