@@ -5,6 +5,7 @@ using RPG.Movement;
 using RPG.Core;
 using RPG.Saving;
 using RPG.Resources;
+using RPG.Stats;
 
 namespace RPG.Combat
 {
@@ -101,13 +102,15 @@ namespace RPG.Combat
                 GetComponent<AudioSource>().Play();
             }
 
+            float damage = GetComponent<BaseStats>().GetStat(Stats.Stats.Damage);
+
             if (currentWeapon.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, this.gameObject);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, this.gameObject, damage);
                 return;
             }
 
-            target.TakeDamage(this.gameObject, currentWeapon.GetDamage());
+            target.TakeDamage(this.gameObject, damage);
         }
 
         void Shoot()

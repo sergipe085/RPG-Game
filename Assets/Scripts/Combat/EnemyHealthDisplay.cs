@@ -18,7 +18,7 @@ namespace RPG.Combat
         private void Update() {
             Health target = fighter.GetTarget();
             if (target) {
-                GetComponent<Text>().text = String.Format("{0:0}%", target.GetPercentage());
+                GetComponent<Text>().text = String.Format("{0:0}/{1:0}", target.GetHealth(), target.GetMaxHealth());
             }
             else {
                 GetComponent<Text>().text = "N/A";
