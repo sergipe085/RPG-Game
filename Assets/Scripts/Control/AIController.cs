@@ -21,6 +21,7 @@ namespace RPG.Control
         [SerializeField] private PatrolPath patrolPath;
         Fighter fighter;
         Health health;
+        Mover mover;
         GameObject playerRef;
 
         Vector3 guardPosition;
@@ -28,10 +29,14 @@ namespace RPG.Control
         float timeSinceLastWaypoint = 0f;
         int waypointIndex = 0;
 
-        private void Start()
-        {
+        private void Awake() {
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
+            mover = GetComponent<Mover>();
+        }
+
+        private void Start()
+        {
             playerRef = GameObject.FindGameObjectWithTag("Player");
 
             guardPosition = transform.position;
@@ -70,8 +75,8 @@ namespace RPG.Control
                 nextPosition = GetCurrentWaypoint();
             }
 
-            GetComponent<Mover>().StartMoveAction(nextPosition);
-            GetComponent<Mover>().currentSpeed = patrolSpeed;
+            mover.StartMoveAction(nextPosition);
+            mover.currentSpeed = patrolSpeed;
         }
 
         bool AtWayPoint()
@@ -103,7 +108,7 @@ namespace RPG.Control
         void AttackBehaviour()
         {
             fighter.Attack(playerRef);
-            GetComponent<Mover>().currentSpeed = chaseSpeed;
+            mover.currentSpeed = chaseSpeed;
         }
 
         bool InAttackRangeOfPlayer()

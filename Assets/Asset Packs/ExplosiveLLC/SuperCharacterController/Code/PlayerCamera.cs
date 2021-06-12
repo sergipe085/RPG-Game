@@ -14,24 +14,24 @@ public class PlayerCamera : MonoBehaviour
 
     private SuperCharacterController controller;
 
-	void Start()
-	{
+    void Start()
+    {
         input = PlayerTarget.GetComponent<PlayerInputController>();
         machine = PlayerTarget.GetComponent<PlayerMachine>();
         controller = PlayerTarget.GetComponent<SuperCharacterController>();
         target = PlayerTarget.transform;
-	}
-	
-	void LateUpdate()
-	{
-        transform.position = target.position;
-        yRotation += input.Current.MouseInput.y;
-        Vector3 left = Vector3.Cross(machine.lookDirection, controller.up);
+    }
 
-        transform.rotation = Quaternion.LookRotation(machine.lookDirection, controller.up);
-        transform.rotation = Quaternion.AngleAxis(yRotation, left) * transform.rotation;
+    void LateUpdate()
+    {
+    transform.position = target.position;
+    yRotation += input.Current.MouseInput.y;
+    Vector3 left = Vector3.Cross(machine.lookDirection, controller.up);
 
-        transform.position -= transform.forward * Distance;
-        transform.position += controller.up * Height;
-	}
+    transform.rotation = Quaternion.LookRotation(machine.lookDirection, controller.up);
+    transform.rotation = Quaternion.AngleAxis(yRotation, left) * transform.rotation;
+
+    transform.position -= transform.forward * Distance;
+    transform.position += controller.up * Height;
+    }
 }

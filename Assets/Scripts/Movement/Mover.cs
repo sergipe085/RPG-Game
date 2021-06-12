@@ -19,7 +19,7 @@ namespace RPG.Movement
         NavMeshAgent navMeshAgent;
         Animator anim;
 
-        void Start()
+        void Awake()
         {
             navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
             anim = GetComponent<Animator>();
