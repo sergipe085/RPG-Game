@@ -45,8 +45,8 @@ namespace RPG.SceneManagement
             GetComponent<SavingSystem>().Delete(saveName);
         }
 
-        private void OnApplicationQuit() {
-            Save();
-        }
+        // private void OnApplicationQuit() {
+        //     Save();
+        // }
     }
 }

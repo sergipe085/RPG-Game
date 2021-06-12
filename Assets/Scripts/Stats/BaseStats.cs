@@ -11,6 +11,7 @@ namespace RPG.Stats
         [SerializeField] private int            startingLevel  = 1;
         [SerializeField] private CharacterClass characterClass = CharacterClass.Player;
         [SerializeField] private Progression    progression    = null;
+        [SerializeField] private bool shouldUseModifiers       = false;
         public event Action onLevelUp;
 
         [Header("EFFECTS")]
@@ -41,6 +42,10 @@ namespace RPG.Stats
         }
 
         public float GetStat(Stats stat) {
+            return (GetBaseStat(stat) + GetAdditiveModifier(stat)) * (1 + GetPercentageModifier(stat) / 100);
+        }
+
+        private float GetBaseStat(Stats stat) {
             return progression.GetStat(characterClass, stat, GetLevel());
         }
 
@@ -48,7 +53,7 @@ namespace RPG.Stats
             return currentLevel;
         }
 
-        public int CalculateLevel() {
+        private int CalculateLevel() {
             Experience experience = GetComponent<Experience>();
 
             if (experience == null) return startingLevel;
@@ -62,6 +67,36 @@ namespace RPG.Stats
                 }
             }
             return penultimateLevel + 1;
+        }
+
+        private float GetAdditiveModifier(Stats stat) {
+            if (!shouldUseModifiers) return 0.0f;
+
+            IModifierProvider[] modifierProviders = GetComponents<IModifierProvider>();
+            float additive = 0.0f;
+
+            foreach(IModifierProvider modifierProvider in modifierProviders) {
+                foreach(float f in modifierProvider.GetAdditiveModifier(stat)) {
+                    additive += f;
+                }
+            }
+
+            return additive;
+        }
+
+        private float GetPercentageModifier(Stats stat) {
+            if (!shouldUseModifiers) return 0.0f;
+
+            IModifierProvider[] modifierProviders = GetComponents<IModifierProvider>();
+            float additive = 0.0f;
+
+            foreach (IModifierProvider modifierProvider in modifierProviders) {
+                foreach (float f in modifierProvider.GetPercentageModifier(stat)) {
+                    additive += f;
+                }
+            }
+
+            return additive;
         }
     }
 }

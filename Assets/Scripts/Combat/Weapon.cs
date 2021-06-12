@@ -13,6 +13,7 @@ public class Weapon : ScriptableObject
     public float playerSpeed = 0.0f;
     public float weaponRange = 0.0f;
     public float weaponDamage = 0.0f;
+    public float percentageBonus = 0.0f;
     public float timeBetweenAttacks = 0.0f;
     public bool isRightHanded = true;
 
@@ -52,6 +53,10 @@ public class Weapon : ScriptableObject
     public float GetDamage()
     {
         return weaponDamage;
+    }
+
+    public float GetPercentageBonus() {
+        return percentageBonus;
     }
 
     public float GetRange()

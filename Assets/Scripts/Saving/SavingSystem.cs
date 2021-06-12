@@ -13,9 +13,11 @@ namespace RPG.Saving
     {
         public IEnumerator LoadLastScene(string saveFile) {
             Dictionary<string, object> state = LoadFile(saveFile);
-            if (state.ContainsKey("lastScene") && SceneManager.GetActiveScene().name != (string) state["lastScene"]) {
-                yield return SceneManager.LoadSceneAsync((string)state["lastScene"]);
+            string scene = SceneManager.GetActiveScene().name;
+            if (state.ContainsKey("lastScene")) {
+                scene = (string) state["lastScene"];
             }
+            yield return SceneManager.LoadSceneAsync(scene);
             RestoreState(state);
         }
 

@@ -9,7 +9,7 @@ using RPG.Stats;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction, ISaveable
+    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
     {
         [SerializeField] private Transform rightHandTransform = null;
         [SerializeField] private Transform leftHandTransform = null;
@@ -122,6 +122,20 @@ namespace RPG.Combat
         {
             GetComponent<ActionScheduler>().StartAction(this);
             target = combatTarget.GetComponent<Health>();
+        }
+
+        public IEnumerable<float> GetAdditiveModifier(Stats.Stats stat)
+        {
+            if (stat == Stats.Stats.Damage) {
+                yield return currentWeapon.GetDamage();
+            }
+        }
+
+        public IEnumerable<float> GetPercentageModifier(Stats.Stats stat)
+        {
+            if (stat == Stats.Stats.Damage) {
+                yield return currentWeapon.GetPercentageBonus();
+            }
         }
 
         public bool CanAttack(GameObject combatTarget)
