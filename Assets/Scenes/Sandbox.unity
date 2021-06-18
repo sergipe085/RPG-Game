@@ -5519,7 +5519,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586766054}
-  m_LocalRotation: {x: 0.0455752, y: 0.68775475, z: -0.043340657, w: 0.7232137}
+  m_LocalRotation: {x: 0.04557521, y: 0.6877548, z: -0.04334067, w: 0.7232136}
   m_LocalPosition: {x: -29.84, y: 14.66, z: -4.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6694,10 +6694,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 92072582}
     m_Modifications:
+    - target: {fileID: 684897063174104743, guid: dd4381f959bc31946af76353b0bcae41,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2631168740560165081, guid: dd4381f959bc31946af76353b0bcae41,
         type: 3}
       propertyPath: m_Name
       value: Bow Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 2631168740560165081, guid: dd4381f959bc31946af76353b0bcae41,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3734893978288899372, guid: dd4381f959bc31946af76353b0bcae41,
         type: 3}
