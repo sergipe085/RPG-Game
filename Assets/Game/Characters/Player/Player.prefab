@@ -141,6 +141,7 @@ MonoBehaviour:
   movementLayers:
     serializedVersion: 2
     m_Bits: 51
+  maxNavPathLength: 10
   fighter: {fileID: 0}
 --- !u!114 &4204670440216074153
 MonoBehaviour:
