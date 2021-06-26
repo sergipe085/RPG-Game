@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f47a8c95136c042a0e73ffe00b2280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 4631322279197476602}
 --- !u!1 &5055200106967312203
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.3066038, b: 0.3066038, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -134,10 +135,10 @@ GameObject:
   - component: {fileID: 3095316893749046801}
   - component: {fileID: 2865095692106135529}
   - component: {fileID: 1420450348160503185}
-  - component: {fileID: 7401369272427840163}
   - component: {fileID: 6127859264255851582}
   - component: {fileID: 4084399939527017251}
   - component: {fileID: 4484304944606835333}
+  - component: {fileID: 2550611529710415261}
   m_Layer: 5
   m_Name: Damage Text
   m_TagString: Untagged
@@ -208,23 +209,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1000
---- !u!114 &7401369272427840163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5271527064997306483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!111 &6127859264255851582
 Animation:
   m_ObjectHideFlags: 0
@@ -265,3 +249,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90823a60d2fce242bdf8873a76198f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2550611529710415261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5271527064997306483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91590d95072b5ec4ebb6f9df8d9b9ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 4978307539267459310}
