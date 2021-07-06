@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using RPG.Core;
 using RPG.Combat;
-using RPG.Resources;
+using RPG.Attributes;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Weapons/Make New Weapon", order = 0)]
 public class Weapon : ScriptableObject
