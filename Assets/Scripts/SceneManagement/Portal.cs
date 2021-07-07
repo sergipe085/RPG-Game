@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Control;
+using RPG.Core;
 using RPG.Saving;
 using UnityEngine;
 using UnityEngine.AI;
@@ -18,6 +20,8 @@ namespace RPG.SceneManagement
         [SerializeField] private float fadeDuration = 1.0f;
         [SerializeField] private float fadeWaitTime = 0.5f;
 
+        private GameObject player = null;
+
         private void OnTriggerEnter(Collider other) {
             if (other.CompareTag("Player")) {
                 StartCoroutine(Transition());
@@ -34,12 +38,17 @@ namespace RPG.SceneManagement
 
             Fader fader = FindObjectOfType<Fader>();
             SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>().GetComponent<SavingWrapper>();
+            PlayerController playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            playerController.enabled = false;
 
             yield return fader.FadeOut(fadeDuration / 2);
 
             savingWrapper.Save();
 
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
+
+            PlayerController newPlayerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            newPlayerController.enabled = false;
 
             savingWrapper.Load();
 
@@ -49,8 +58,9 @@ namespace RPG.SceneManagement
             savingWrapper.Save();
 
             yield return new WaitForSeconds(fadeWaitTime);
-            yield return fader.FadeIn(fadeDuration / 2);
-
+            fader.FadeIn(fadeDuration / 2);
+            
+            newPlayerController.enabled = true;
             Destroy(gameObject);
         }
 
