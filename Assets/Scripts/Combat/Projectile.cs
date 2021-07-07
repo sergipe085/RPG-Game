@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Attributes;
+using UnityEngine.Events;
 
 namespace RPG.Combat
 {
@@ -13,6 +14,8 @@ namespace RPG.Combat
         [SerializeField] private float maxLifeTime = 20.0f;
         [SerializeField] private GameObject[] destroyOnHit = null;
         [SerializeField] private float lifeAfterImpact = 0.0f;
+        [SerializeField] private UnityEvent onLaunch = null;
+        [SerializeField] private UnityEvent onHit    = null;
         Health target = null;
         GameObject instigator;
         float damage = 0.0f;
@@ -23,6 +26,7 @@ namespace RPG.Combat
 
             if (target == null) return;
             transform.LookAt(GetAimLocation());
+            onLaunch?.Invoke();
         }
 
         void Update()
@@ -81,6 +85,7 @@ namespace RPG.Combat
             }
 
             Destroy(gameObject, lifeAfterImpact);
+            onHit?.Invoke();
         }
     }
 
