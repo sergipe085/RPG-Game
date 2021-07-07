@@ -12,7 +12,7 @@ namespace RPG.Attributes
 
         private void Update() {
             float fraction = health.GetFraction();
-            canvas.enabled = fraction > 0;
+            canvas.enabled = fraction > 0 && fraction < 1f;
             foreground.localScale = new Vector2(fraction, foreground.localScale.y);
         }
     }
