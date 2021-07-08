@@ -8,7 +8,7 @@ namespace RPG.Combat
 {
     public class WeponPickUp : MonoBehaviour, IRaycastable
     {
-        [SerializeField] private Weapon weapon = null;
+        [SerializeField] private WeaponConfig weapon = null;
 
         private void OnTriggerEnter(Collider other)
         {

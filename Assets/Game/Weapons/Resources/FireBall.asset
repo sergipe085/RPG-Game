@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c06fd219a6830e43801f7b8df96b9b1, type: 3}
   m_Name: FireBall
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 4895384117170910405, guid: fcc4281634c05d4499fc4d76874cc7f9,
+  weaponPrefab: {fileID: 8323508656421479939, guid: fcc4281634c05d4499fc4d76874cc7f9,
     type: 3}
   weaponAnimator: {fileID: 22100000, guid: a37972de21435234bb73ca7f1cd2f3a8, type: 2}
   projectile: {fileID: 3069236409595509126, guid: 680bc062277b613438631fef19f3e471,
     type: 3}
-  attackSound: {fileID: 0}
   playerSpeed: 2
   weaponRange: 20
   weaponDamage: 10
+  percentageBonus: 0
   timeBetweenAttacks: 2
   isRightHanded: 1

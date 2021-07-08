@@ -6,7 +6,7 @@ namespace RPG.Core
 {
     public class FollowCamera : MonoBehaviour
     {
-        [SerializeField] private Transform target;
+        [SerializeField] private Transform target = null;
         [SerializeField] private float sensitivity = 0f;
         float xRotation;
 

@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c06fd219a6830e43801f7b8df96b9b1, type: 3}
   m_Name: PlayerBow
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 5712514190334290270, guid: f07f0b32be5d2054e8e71d6b9ef8fe42,
+  weaponPrefab: {fileID: 6025651896894662891, guid: f07f0b32be5d2054e8e71d6b9ef8fe42,
     type: 3}
   weaponAnimator: {fileID: 22100000, guid: 8d9d202fc6bd09e469cf04002b6e6a5f, type: 2}
   projectile: {fileID: 833598450374598932, guid: f1093349884463144bc5c7fc79916070,
     type: 3}
-  attackSound: {fileID: 8300000, guid: 7e97b414468e5834a8b9831c179e50a0, type: 3}
   playerSpeed: 5
   weaponRange: 20
   weaponDamage: 5
+  percentageBonus: 0
   timeBetweenAttacks: 1
   isRightHanded: 0

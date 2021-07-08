@@ -74,7 +74,7 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButton(0))
                 {
-                    mover.currentSpeed = fighter.currentWeapon.playerSpeed;
+                    mover.currentSpeed = fighter.currentWeaponConfig.playerSpeed;
                     mover.StartMoveAction(target);
                 }
                 SetCursor(CursorType.Movement);
