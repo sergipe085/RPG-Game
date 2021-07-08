@@ -73,6 +73,10 @@ namespace RPG.Attributes
             return healthPoints / GetComponent<BaseStats>().GetStat(Stats.Stats.Health);
         }
 
+        public void Heal(float healthToHeal) {
+            healthPoints = Mathf.Clamp(healthPoints + healthToHeal, 0, GetMaxHealth());
+        }
+
         void Die()
         {
             if (isDead) return;
